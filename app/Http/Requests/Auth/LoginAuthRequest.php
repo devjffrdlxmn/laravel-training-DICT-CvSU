@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateGameRequest extends FormRequest
+class LoginAuthRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +21,9 @@ class UpdateGameRequest extends FormRequest
      */
     public function rules(): array
     {
-        $game = $this->route()->game;
-        $stage = $game->play($this->user());
-
         return [
-            'guess' => [
-                Rule::notIn($stage->guesses)
-            ]
+            "email"=> "required",
+            "password"=> "required",
         ];
     }
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -44,5 +46,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function created_games() : HasMany {
+        return $this->hasMany(Game::class);
+    }
+
+    public function games() : BelongsToMany {
+        return $this->belongsToMany(
+            Game::class, 
+            'players',
+            'user_id',
+            'game_id'
+        )->withPivot(['id', 'is_active', 'score'])
+        ->withTimestamps()
+        ->using(Player::class)
+        ->as('player');
     }
 }
