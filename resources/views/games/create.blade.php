@@ -1,40 +1,48 @@
 <x-app>
     <x-slot:title>
-        CREATE GAME
+        New Game
     </x-slot:title>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100 px-6 py-12">
-        <div class="w-full max-w-md bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-            <div class="flex items-center justify-between mb-6">
-                <a href="{{ route('games.index') }}" 
-                   class="inline-flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Back
-                </a>
-                <h1 class="text-xl font-bold text-gray-800">Create Game</h1>
-                <div class="w-10"></div>
-            </div>
-            <form method="POST" action="{{ route('games.store') }}" class="space-y-6">
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12">
+        <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
+
+            <!-- Page Title -->
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">
+                📝 Create New Word Guest
+            </h2>
+
+            <!-- Create Game Form -->
+            <form method="POST" action="{{ route('games.store') }}" class="space-y-5">
                 @csrf
+
+                <!-- Game Name -->
                 <div>
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Name:</label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name"  
-                        value="{{ old('name') }}" 
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter game name"
+                    <label for="name" class="block text-sm font-medium text-gray-700">
+                        Game Name
+                    </label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value="{{ old('name') }}"
+                        required
+                        placeholder="Enter game name..."
+                        class="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     >
                     @error('name')
-                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                <div>
-                    <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Create New Game</button>
-                </div>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition"
+                >
+                    Create Game
+                </button>
             </form>
+
         </div>
     </div>
 </x-app>
