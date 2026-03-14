@@ -4,6 +4,7 @@
     </x-slot:title>
 
     <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+
         <!-- Game Title -->
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">{{ $game->name }}</h1>
 
@@ -61,6 +62,10 @@
                     Next Stage
                 </a>
             @endif
+              <a href="{{ route('games.index') }}"
+   class="w-full mt-1 inline-block bg-gray-300 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+   ← Back to Game Home
+</a>
         </form>
 
         <!-- Top Players -->

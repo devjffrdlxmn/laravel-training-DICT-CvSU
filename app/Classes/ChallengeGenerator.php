@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class ChallengeGenerator
 {
-    private array $categories = ['Sports', 'countries', 'programming_languages'];
+    private array $categories = ['animals', 'countries', 'programming_languages'];
 
     public function getCategories() : array {
         return $this->categories;

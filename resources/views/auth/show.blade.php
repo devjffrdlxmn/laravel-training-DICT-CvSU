@@ -1,6 +1,6 @@
 <x-app>
 <x-slot:title>
-   Guest Word Login
+   Word Guest Login
 </x-slot:title>
 
 <div class="min-h-screen flex items-center justify-center bg-slate-100">

@@ -25,7 +25,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'name' => 'The email and password does not match.',
+            'name' => 'The name and password does not match.',
         ])->onlyInput('name');
     }
 

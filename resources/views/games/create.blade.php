@@ -1,6 +1,6 @@
 <x-app>
     <x-slot:title>
-        New Game
+        Create New Word Guest
     </x-slot:title>
 
     <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12">

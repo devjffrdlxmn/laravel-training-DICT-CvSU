@@ -5,7 +5,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="/" class="text-xl font-bold text-orange-600">
-                    📝 Word Challenge Games
+                    📝 Word Guest
                 </a>
             </div>
             <!-- Menu -->
